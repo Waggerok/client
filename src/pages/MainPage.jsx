@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import DeviceList from '../components/DeviceList';
 import axios from 'axios';
 
-const devicesSource = 'server-production-1e16.up.railway.app/api/devices';
+const devicesSource = 'https://server-production-1e16.up.railway.app/api/devices';
+
+// const devicesSource = 'https://server-production-1e16.up.railway.app/api/devices';
 
 const MainPage = () => {
 
