@@ -4,8 +4,6 @@ import axios from 'axios';
 
 const devicesSource = 'https://server-production-1e16.up.railway.app/api/devices';
 
-// const devicesSource = 'https://server-production-1e16.up.railway.app/api/devices';
-
 const MainPage = () => {
 
     const [devices,setDevices] = useState([]);

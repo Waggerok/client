@@ -8,10 +8,16 @@ import { IoCartOutline } from "react-icons/io5";
 import { CiShoppingBasket } from "react-icons/ci";
 import { MdAdminPanelSettings } from "react-icons/md";
 
+
+const usersSource = 'https://server-production-1e16.up.railway.app/api/user/getUsers';
+
 const Navbar = () => {
 
     const [isAdmin, setIsAdmin] = useState(false);
     console.log(setIsAdmin);
+
+
+
 
     const location = useLocation();
     const isActive = (path) => location.pathname === path;
