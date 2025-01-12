@@ -24,12 +24,10 @@ const Navbar = () => {
         const fetchingAdmins = async() => {
             try {
                 const response = await axios.get(adminSource);
-                const user = response.data;
-                const id = user.telegram_id;
-                console.log(id);
-                console.log(user);
+                const admins = response.data;    
+                const currentAdmin = admins.find(admin => admin.telegram_id === currentUser)
 
-                if (currentUser === user.telegram_id) {
+                if (currentAdmin) {
                     setIsAdmin(true);
                     console.log('Да, он админ')
                 } else {
