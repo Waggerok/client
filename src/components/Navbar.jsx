@@ -1,6 +1,14 @@
+Navbar
+
+
+Navbar
+
+
 //React Imports
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link, useLocation} from 'react-router-dom';
+
+import axios from 'axios';
 
 //Icons
 import { IoHomeOutline } from "react-icons/io5";
@@ -13,11 +21,26 @@ const usersSource = 'https://server-production-1e16.up.railway.app/api/user/getU
 
 const Navbar = () => {
 
-    const [isAdmin, setIsAdmin] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(true);
     console.log(setIsAdmin);
 
+    useEffect(() => {
+        const fetchCurrentUser = async () => {
+            try {
+                const response = await axios.get(usersSource, { withCredentials: true });
+                const user = response.data;
 
+                if (user.role === 'ADMIN') {
+                    setIsAdmin(true);
+                }
 
+            } catch(error) {
+                console.error('Ошибка при получении текущего пользователя', error)
+            }
+        };
+
+        fetchCurrentUser();
+    },[]);
 
     const location = useLocation();
     const isActive = (path) => location.pathname === path;
