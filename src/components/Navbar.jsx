@@ -20,13 +20,13 @@ const Navbar = () => {
 
     const [isAdmin, setIsAdmin] = useState(false);
     
-
-    useEffect(() => {
-        
+    useEffect(() => {    
         const fetchingAdmins = async() => {
             try {
                 const response = await axios.get(adminSource);
                 const user = response.data;
+                const id = user.telegram_id;
+                console.log(id);
                 console.log(user);
 
                 if (currentUser === user.telegram_id) {
