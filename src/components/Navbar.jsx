@@ -1,5 +1,5 @@
 //React Imports
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link, useLocation} from 'react-router-dom';
 
 //Icons
@@ -7,16 +7,40 @@ import { IoHomeOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 import { CiShoppingBasket } from "react-icons/ci";
 import { MdAdminPanelSettings } from "react-icons/md";
+import axios from 'axios';
 
 
-const usersSource = 'https://server-production-1e16.up.railway.app/api/user/getUsers';
+const adminSource = 'https://server-production-1e16.up.railway.app/api/user/getAdmins';
+const tg = window.Telegram.WebApp;
+
+const currentUser = tg.initDataUnsafe?.user?.username;
+console.log(currentUser);
 
 const Navbar = () => {
 
     const [isAdmin, setIsAdmin] = useState(false);
-    console.log(setIsAdmin);
+    
 
+    useEffect(() => {
+        
+        const fetchingAdmins = async() => {
+            try {
+                const response = await axios.get(adminSource);
+                const user = response.data;
+                console.log(user);
 
+                if (user.role === 'ADMIN') {
+                    setIsAdmin(true);
+                } else {
+                    setIsAdmin(false);
+                }
+            } catch(error) {
+                console.error('Ошибка при получении роли админа пользователя', error);
+            }
+        }
+
+        fetchingAdmins();
+    },[])
 
 
     const location = useLocation();
