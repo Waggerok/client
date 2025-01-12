@@ -29,8 +29,9 @@ const Navbar = () => {
                 const user = response.data;
                 console.log(user);
 
-                if (user.role === 'ADMIN') {
+                if (currentUser === user.telegram_id) {
                     setIsAdmin(true);
+                    console.log('Да, он админ')
                 } else {
                     setIsAdmin(false);
                 }
