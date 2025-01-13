@@ -18,7 +18,7 @@ const MainPage = () => {
     },[])
     return (
         <>
-            Main Page
+            
             
             <div className="deviceList">
                 <DeviceList devices={devices}/>
