@@ -14,7 +14,7 @@ const DeviceCard = (props) => {
                 </div>
                 <div className={styles.card__items_price}>
                     <p>
-                        <b>{props.price}РУБ.</b>
+                        <b>{props.price} ₽</b>
                     </p>
                 </div>
             </div>

@@ -17,14 +17,14 @@ const MainPage = () => {
             })
     },[])
     return (
-        <>
+        <div className='App'>
             
             
             <div className="deviceList">
                 <DeviceList devices={devices}/>
             </div>
 
-        </>
+        </div>
     );
 };
 
