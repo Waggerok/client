@@ -5,7 +5,7 @@ const DeviceList = ({devices}) => {
 
     // const srcForImage = 'http://localhost:5000';
 
-    const ImageSource = 'https://server-production-1e16.up.railway.app/api/devices'
+    const ImageSource = 'https://server-production-1e16.up.railway.app'
 
     return (
         <>
