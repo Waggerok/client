@@ -94,7 +94,7 @@ html, body {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   gap: 15px;
-  padding: 10px;
+  padding: 10px 10px 70px 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }/*# sourceMappingURL=App.min.css.map */
