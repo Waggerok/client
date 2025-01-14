@@ -17,10 +17,8 @@ const MainPage = () => {
             })
     },[])
     return (
-        <div className='App'>
-            
-            
-            <div className="deviceList">
+        <div className='App' style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>   
+            <div className="deviceList" style={{ flex: 1, overflowY: 'auto' }}>
                 <DeviceList devices={devices}/>
             </div>
 

@@ -1,10 +1,11 @@
-body {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background-color: #e5e5e5;
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
 }
 
 #root {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,14 +13,20 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .App {
+  height: calc(100% - 70px);
   padding: 10px;
   width: 400px;
+  overflow-y: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .header {
@@ -75,6 +82,10 @@ body {
 }
 
 .deviceList {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  overflow-y: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -83,4 +94,7 @@ body {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   gap: 15px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }/*# sourceMappingURL=App.min.css.map */

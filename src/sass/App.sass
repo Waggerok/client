@@ -1,17 +1,22 @@
 @import 'Variables.sass'
 
-body
-    box-sizing: border-box
-    background-color: #e5e5e5
+html, body
+    height: 100% // Занимаем всю высоту окна
+    margin: 0
+    overflow: hidden // Отключаем глобальную прокрутку
 
 #root
+    height: 100% // Расширяем root на всю высоту
     display: flex
     flex-direction: column
-    align-items: center
 
 .App
+    height: calc(100% - 70px) // Высота с учетом фиксированного header
     padding: 10px
     width: 400px
+    overflow-y: auto // Прокрутка внутри приложения
+    display: flex
+    flex-direction: column
 
 .header
     position: fixed
@@ -44,9 +49,13 @@ body
                 a
                     color: $main-color
 
-.deviceList 
+.deviceList
+    flex-grow: 1 // Растягиваем список устройств
+    overflow-y: auto // Прокрутка внутри списка
     display: flex
     flex-wrap: wrap
     justify-content: space-around
     gap: 15px
+    padding: 10px
+    box-sizing: border-box
     

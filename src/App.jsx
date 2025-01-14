@@ -10,12 +10,15 @@ function App() {
 
     useEffect(() => {
         tg.ready();
+        tg.expand();
     },[])
 
     return (
         <BrowserRouter>
             <Navbar/>
-            <AppRouter/>
+            <div style={{ height: '100%', overflow: 'hidden' }}>
+                <AppRouter/>
+            </div>
         </BrowserRouter>
     )
 }
