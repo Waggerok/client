@@ -103,6 +103,10 @@ html, body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+.searchBar input:active, .searchBar input:focus, .searchBar input:hover {
+  outline: 0;
+  outline-offset: 0;
+}
 
 .deviceList {
   -webkit-box-flex: 1;
