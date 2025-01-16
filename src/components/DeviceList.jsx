@@ -17,7 +17,7 @@ const DeviceList = ({devices}) => {
                         image={ImageSource+device.image}
                         key={index}
                         id = {device.id}
-                        onClick={() => navigate(`/device${device.id}`)}
+                        onClick={() => navigate(`/device/${device.id}`)}
                     />
                 )
            }
