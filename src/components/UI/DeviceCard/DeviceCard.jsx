@@ -4,7 +4,7 @@ import styles from './DeviceCard.module.css';
 const DeviceCard = (props) => {
 
     return (
-        <div className={styles.card}>
+        <div className={styles.card} onClick={props.onClick}>
             <div className={styles.card__items}>
                 <div className={styles.card__items_image}>
                     <img src={props.image} alt={props.title}/>
