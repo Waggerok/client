@@ -49,7 +49,7 @@ const Navbar = () => {
         <div className="menu">
             <nav className='menu__navbar'>
                 <ul className='menu__navbar_links'>
-                    <li className={`menu__navbar_links-item ${isActive('/main') ? 'active' : ''}`}>
+                    <li className={`menu__navbar_links-item ${isActive('/') ? 'active' : ''}`}>
                         <Link to='/main'>
                             <IoHomeOutline size={25}/>
                         </Link>
