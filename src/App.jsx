@@ -3,6 +3,7 @@ import {BrowserRouter} from 'react-router-dom';
 
 import AppRouter from './components/AppRouter';
 import Navbar from './components/Navbar';
+import Header from './components/Header';
 
 const tg = window.Telegram.WebApp;
 
@@ -15,6 +16,7 @@ function App() {
 
     return (
         <BrowserRouter>
+            <Header/>
             <Navbar/>
             <div style={{ height: '100%', overflow: 'hidden' }}>
                 <AppRouter/>
