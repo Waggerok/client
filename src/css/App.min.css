@@ -143,6 +143,7 @@ html, body {
 }
 .device__items_image {
   width: 80%;
+  height: 304px;
 }
 .device__items_image img {
   width: 100%;
