@@ -1,14 +1,18 @@
 import React, {useEffect, useState} from 'react';
+import usePreventTelegramCollapse from '../hooks/usePreventTelegramCollapse';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import { Canvas } from 'react-three-fiber';
 import { OrbitControls } from '@react-three/drei';
+import axios from 'axios';
 
 const devicesSource = 'https://server-production-1e16.up.railway.app/api/devices';
 const ImageSource = 'https://server-production-1e16.up.railway.app';
 
 
 const DevicePage = () => {
+
+    usePreventTelegramCollapse();
+
     const { id } = useParams();
     const [device,setDevice] = useState(null);
 

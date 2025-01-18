@@ -20,6 +20,7 @@ html, body {
   padding: 0px 10px 10px 10px;
   width: 400px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
