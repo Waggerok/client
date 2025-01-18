@@ -1,66 +1,72 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import usePreventTelegramCollapse from '../hooks/usePreventTelegramCollapse';
 import { useParams } from 'react-router-dom';
-import { Canvas } from 'react-three-fiber';
-import { OrbitControls } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, useGLTF } from '@react-three/drei';
 import axios from 'axios';
 
 const devicesSource = 'https://server-production-1e16.up.railway.app/api/devices';
-const ImageSource = 'https://server-production-1e16.up.railway.app';
-
+const staticSource = 'https://server-production-1e16.up.railway.app';
 
 const DevicePage = () => {
-
     usePreventTelegramCollapse();
 
     const { id } = useParams();
-    const [device,setDevice] = useState(null);
-
+    const [device, setDevice] = useState(null);
     const [is3D, setIs3D] = useState(false);
 
     useEffect(() => {
         axios
             .get(`${devicesSource}/${id}`)
             .then((response) => {
-                setDevice(response.data)
+                console.log('Device Data:', response.data); // Для проверки структуры данных
+                setDevice(response.data);
             })
             .catch((error) => {
                 console.error('Error fetching device:', error);
-            })
-    },[id])
+            });
+    }, [id]);
 
     if (!device) {
-        return(
-            <div>Loading...</div>
-        )
+        return <div>Loading...</div>;
     }
 
     const turnOn3D = () => {
-        if (!is3D) {
-            setIs3D(true)
-        } else {
-            setIs3D(false)
-        }
-    }
+        setIs3D((prev) => !prev);
+    };
+
+    console.log('Device:', device);
+    console.log('3D Model URL:', `${staticSource}${device.model3D}`);
     
+
     return (
         <div className='App'>
             <div className='device'>
                 <div className="device__items">
                     <div className="device__items_image">
-                        {
-                            is3D
-                            ?
-                            <Canvas>
-                                <OrbitControls/>
-                                <mesh>
-                                    <boxGeometry/>
-                                    <meshBasicMaterial color={"red"} />
-                                </mesh>
-                            </Canvas>
-                            :
-                            <img src={ImageSource+device.image} alt={device.name} />
-                        }
+                        {is3D ? (
+                            device.model3D ? (
+                                <Canvas 
+                                    camera={{ position: [0, 1, 1], fov: 50 }}
+                                >
+                                    <ambientLight intensity={0.9} />
+                                    <directionalLight position={[0, 20, 0]} intensity={1} />
+                                    <directionalLight position={[0, -1, -10]} intensity={1} />
+                                    <directionalLight position={[0, -1, 10]} intensity={1} />
+                                    <directionalLight position={[0, -20, 0]} intensity={1} />
+                                    <OrbitControls />
+                                    <Suspense fallback={<mesh />}>
+                                        <Model url={staticSource + device.model3D} />
+                                    </Suspense>
+                                </Canvas>
+
+
+                            ) : (
+                                <div>3D модель недоступна</div>
+                            )
+                        ) : (
+                            <img src={staticSource + device.image} alt={device.name} />
+                        )}
                     </div>
                     <div className="device__items_name">
                         <p>{device.name}</p>
@@ -81,6 +87,15 @@ const DevicePage = () => {
             </div>
         </div>
     );
+};
+
+const Model = ({ url }) => {
+    const { scene, error } = useGLTF(url); // Загружаем GLTF модель
+    if (error) {
+        console.error("Error loading model:", error);
+        return <div>Ошибка загрузки модели</div>;
+    }
+    return <primitive object={scene} scale={0.5} />;
 };
 
 export default DevicePage;
