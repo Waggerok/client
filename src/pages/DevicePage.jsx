@@ -86,7 +86,7 @@ const DevicePage = () => {
             </div>
             <div className="buttons">
                 <div className="buttons__items">
-                    <button className='buttons__items_3d' onClick={turnOn3D}>3D</button>
+                    <button className={`buttons__items_3D${is3D ? '_active' : ''}`} onClick={turnOn3D}>3D</button>
                     <button className='buttons__items_order'>Добавить в корзину</button>
                 </div>
             </div>
