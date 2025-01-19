@@ -1,3 +1,23 @@
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
 html, body {
   height: 100%;
   margin: 0;
@@ -190,4 +210,11 @@ html, body {
   background-color: #0f5bdd;
   color: white;
   border-radius: 10px;
+}
+
+.loader {
+  text-align: center;
+  margin-top: 45%;
+  -webkit-animation: loading 1s infinite;
+          animation: loading 1s infinite;
 }/*# sourceMappingURL=App.min.css.map */

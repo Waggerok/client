@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import axios from 'axios';
+import { LuLoader } from 'react-icons/lu';
 
 const devicesSource = 'https://server-production-1e16.up.railway.app/api/devices';
 const staticSource = 'https://server-production-1e16.up.railway.app';
@@ -28,7 +29,11 @@ const DevicePage = () => {
     }, [id]);
 
     if (!device) {
-        return <div>Loading...</div>;
+        return (
+            <div className='loader'>
+                <LuLoader size={50} color='#0f5bdd'/>
+            </div>   
+        );
     }
 
     const turnOn3D = () => {
