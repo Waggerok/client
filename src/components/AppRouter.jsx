@@ -1,6 +1,8 @@
+//React Imports
 import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 
+//Pages
 import MainPage from '../pages/MainPage';
 import CartPage from '../pages/CartPage';
 import OrdersPage from '../pages/OrdersPage';

@@ -1,11 +1,14 @@
+//React Imports
 import React, { useEffect } from 'react';
 import {BrowserRouter} from 'react-router-dom';
 
+//Components
 import AppRouter from './components/AppRouter';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 
-const tg = window.Telegram.WebApp;
+//Variables
+import { tg } from './variables';
 
 function App() {
 

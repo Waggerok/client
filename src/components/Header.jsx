@@ -1,5 +1,7 @@
+//React Imports
 import React from 'react';
 
+//Icons
 import { MdOutlineDevices } from 'react-icons/md';
 
 const Header = () => {

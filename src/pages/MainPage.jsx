@@ -1,10 +1,12 @@
+//React Imports
 import React, { useEffect, useState } from 'react';
-import DeviceList from '../components/DeviceList';
 import axios from 'axios';
+
+//Components
+import DeviceList from '../components/DeviceList';
+
+//Icons
 import { LuLoader } from 'react-icons/lu';
-
-
-const devicesSource = 'https://server-production-1e16.up.railway.app/api/devices';
 
 const MainPage = () => {
 
@@ -15,7 +17,7 @@ const MainPage = () => {
 
     useEffect(() => {
         axios
-            .get(devicesSource)
+            .get(`${process.env.REACT_APP_API_LINK}/api/devices`)
             .then((data) => {
                 console.log(data.data)
                 setDevices(data.data)

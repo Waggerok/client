@@ -1,20 +1,18 @@
 //React Imports
 import React, { useEffect, useState } from 'react';
 import {Link, useLocation} from 'react-router-dom';
+import axios from 'axios';
 
 //Icons
 import { IoHomeOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 import { CiShoppingBasket } from "react-icons/ci";
 import { MdAdminPanelSettings } from "react-icons/md";
-import axios from 'axios';
 
+//Variables
+import {currentTelegramUser} from '../variables'
 
-const adminSource = 'https://server-production-1e16.up.railway.app/api/user/getAdmins';
-const tg = window.Telegram.WebApp;
-
-const currentUser = tg.initDataUnsafe?.user?.username;
-console.log(currentUser);
+console.log(currentTelegramUser);
 
 const Navbar = () => {
 
@@ -23,9 +21,9 @@ const Navbar = () => {
     useEffect(() => {    
         const fetchingAdmins = async() => {
             try {
-                const response = await axios.get(adminSource);
+                const response = await axios.get(`${process.env.REACT_APP_API_LINK}/api/user/getAdmins`);
                 const admins = response.data;    
-                const currentAdmin = admins.find(admin => admin.telegram_id === currentUser)
+                const currentAdmin = admins.find(admin => admin.telegram_id === currentTelegramUser)
 
                 if (currentAdmin) {
                     setIsAdmin(true);

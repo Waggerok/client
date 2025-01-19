@@ -1,17 +1,18 @@
+//React Imports
 import React, { useEffect, useState, Suspense } from 'react';
-import usePreventTelegramCollapse from '../hooks/usePreventTelegramCollapse';
 import { useParams } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import axios from 'axios';
+
+//Hooks
+import usePreventTelegramCollapse from '../hooks/usePreventTelegramCollapse';
+
+//Variables
+import { currentTelegramUser } from '../variables'
+
+//Icons
 import { LuLoader } from 'react-icons/lu';
-
-const devicesSource = 'https://server-production-1e16.up.railway.app/api/devices';
-const staticSource = 'https://server-production-1e16.up.railway.app';
-
-
-const tg = window.Telegram.WebApp;
-const currentUser = tg.initDataUnsafe?.user?.username;
 
 const DevicePage = () => {
     usePreventTelegramCollapse();
@@ -22,7 +23,7 @@ const DevicePage = () => {
 
     useEffect(() => {
         axios
-            .get(`${devicesSource}/${id}`)
+            .get(`${process.env.REACT_APP_API_LINK}/api/devices/${id}`)
             .then((response) => {
                 console.log('Device Data:', response.data); // Для проверки структуры данных
                 setDevice(response.data);
@@ -47,12 +48,12 @@ const DevicePage = () => {
     
 
     console.log('Device:', device);
-    console.log('3D Model URL:', `${staticSource}${device.model3D}`);
+    console.log('3D Model URL:', `${process.env.REACT_APP_API_LINK}${device.model3D}`);
     
     const addToBasket = async () => {
         try {
-            const response = await axios.post(`${staticSource}/api/basket/`, {
-                telegram_id : currentUser,
+            const response = await axios.post(`${process.env.REACT_APP_API_LINK}/api/basket/`, {
+                telegram_id : currentTelegramUser,
                 deviceId : device.id,
                 quantity : 1,
             });
@@ -83,7 +84,7 @@ const DevicePage = () => {
                                     <directionalLight position={[0, -20, 0]} intensity={1} />
                                     <OrbitControls />
                                     <Suspense fallback={<mesh />}>
-                                        <Model url={staticSource + device.model3D} />
+                                        <Model url={process.env.REACT_APP_API_LINK + device.model3D} />
                                     </Suspense>
                                 </Canvas>
 
@@ -92,7 +93,7 @@ const DevicePage = () => {
                                 <div>3D модель недоступна</div>
                             )
                         ) : (
-                            <img src={staticSource + device.image} alt={device.name} />
+                            <img src={process.env.REACT_APP_API_LINK + device.image} alt={device.name} />
                         )}
                     </div>
                     <div className="device__items_name">
