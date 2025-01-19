@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import DeviceList from '../components/DeviceList';
 import axios from 'axios';
+import { LuLoader } from 'react-icons/lu';
+
 
 const devicesSource = 'https://server-production-1e16.up.railway.app/api/devices';
 
@@ -9,6 +11,7 @@ const MainPage = () => {
     const [devices,setDevices] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredDevices, setFilteredDevices] = useState([]);
+    const [loader,setLoader] = useState(true);
 
     useEffect(() => {
         axios
@@ -16,6 +19,11 @@ const MainPage = () => {
             .then((data) => {
                 console.log(data.data)
                 setDevices(data.data)
+                setLoader(false);
+            })
+            .catch((err) => {
+                console.error(err);
+                setLoader(false);
             })
     },[]);
 
@@ -37,9 +45,18 @@ const MainPage = () => {
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />
             </div>
-            <div className="deviceList" style={{ flex: 1, overflowY: 'auto' }}>
-                <DeviceList devices={filteredDevices}/>
-            </div>
+            {
+                loader 
+                ?
+                    <div className='loader'>
+                        <LuLoader size={50} color='#0f5bdd'/>
+                    </div>   
+                :
+                    <div className="deviceList" style={{ flex: 1, overflowY: 'auto' }}>
+                        <DeviceList devices={filteredDevices}/>
+                    </div>
+            }
+            
 
         </div>
     );
