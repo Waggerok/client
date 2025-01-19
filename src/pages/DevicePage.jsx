@@ -9,6 +9,10 @@ import { LuLoader } from 'react-icons/lu';
 const devicesSource = 'https://server-production-1e16.up.railway.app/api/devices';
 const staticSource = 'https://server-production-1e16.up.railway.app';
 
+
+const tg = window.Telegram.WebApp;
+const currentUser = tg.initDataUnsafe?.user?.username;
+
 const DevicePage = () => {
     usePreventTelegramCollapse();
 
@@ -40,9 +44,27 @@ const DevicePage = () => {
         setIs3D((prev) => !prev);
     };
 
+    
+
     console.log('Device:', device);
     console.log('3D Model URL:', `${staticSource}${device.model3D}`);
     
+    const addToBasket = async () => {
+        try {
+            const response = await axios.post(`${staticSource}/api/basket/`, {
+                telegram_id : currentUser,
+                deviceId : device.id,
+                quantity : 1,
+            });
+            console.log('Device added to basket', response.data);
+            alert('Вы успешно добавили товар в корзину')
+        }
+        catch(error) {
+            console.error('Error during adding device to basket', error);
+            alert('Ошибка при добавлении товара в корзину');
+        }
+    }
+
 
     return (
         <div className='App'>
@@ -87,7 +109,7 @@ const DevicePage = () => {
             <div className="buttons">
                 <div className="buttons__items">
                     <button className={`buttons__items_3D${is3D ? '_active' : ''}`} onClick={turnOn3D}>3D</button>
-                    <button className='buttons__items_order'>Добавить в корзину</button>
+                    <button className='buttons__items_order' onClick={addToBasket}>Добавить в корзину</button>
                 </div>
             </div>
         </div>
