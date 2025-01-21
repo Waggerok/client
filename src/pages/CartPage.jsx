@@ -48,6 +48,35 @@ const CartPage = () => {
         fetchBasket();
     }, []);
     
+    const deleteDeviceFromBasket = async (deviceId) => {
+        try {
+            await axios.delete(
+                `${process.env.REACT_APP_API_LINK}/api/basket/${currentTelegramUser}/device/${deviceId}`
+            )
+
+            setBasket((prevBasket) => prevBasket.filter((item) => item.deviceId !== deviceId));
+
+            alert('Товар успешно удален из корзины');
+        } catch(error) {
+            console.error('Error during deleting device from basket');
+            alert('Не удалось удалить товар из корзины');
+        }
+    }
+
+    const clearBasket = async () => {
+        try {
+            await axios.delete(
+                `${process.env.REACT_APP_API_LINK}/api/basket/${currentTelegramUser}/clear`
+            );
+
+            setBasket([]);
+
+            alert('Ваша корзина очищена!');
+        } catch(error) {
+            console.error('Error during clearing the basket', error);
+            alert('Не удалось очистить корзину')
+        }
+    }
 
     return (
         <div className='App'>
@@ -56,7 +85,7 @@ const CartPage = () => {
                     {basket.map((device) => (
                         <div className="cart__items_card" key={device.deviceId}>
                             <div className="cart__items_card-image">
-                                <img src={`${process.env.REACT_APP_API_LINK}/uploads/${device.details.image}`} alt={device.details.name} />
+                                <img src={`${process.env.REACT_APP_API_LINK}${device.details.image}`} alt={device.details.name} />
                             </div>
                             <div className="cart__items_card-details">
                                 <div className="cart__items_card-details_name">
@@ -66,11 +95,14 @@ const CartPage = () => {
                                     {device.details.price} ₽
                                 </div>
                                 <div className="cart__items_card-details_button">
-                                    <button>Удалить из корзины</button>
+                                    <button onClick={() => deleteDeviceFromBasket(device.deviceId)}>Удалить из корзины</button>
                                 </div>
                             </div>
                         </div>
                     ))}
+                </div>
+                <div className="cart__clear">
+                    <button onClick={clearBasket}>Очистить корзину</button>
                 </div>
             </div>
         </div>
