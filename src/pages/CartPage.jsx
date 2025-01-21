@@ -84,38 +84,37 @@ const CartPage = () => {
         )
     }
 
+    if (loader) {
+        return (
+            <div className="loader">
+                <LuLoader size={50} color='0f5bdd'/>
+            </div>
+        )
+    }
+
     return (
         <div className='App'>
             <div className="cart">
-                {
-                    loader
-                    ?
-                    <div className="loader">
-                        <LuLoader/>
-                    </div>
-                    :
-                    <div className="cart__items">
-                        {basket.map((device) => (
-                            <div className="cart__items_card" key={device.deviceId}>
-                                <div className="cart__items_card-image">
-                                    <img src={`${process.env.REACT_APP_API_LINK}${device.details.image}`} alt={device.details.name} />
+                <div className="cart__items">
+                    {basket.map((device) => (
+                        <div className="cart__items_card" key={device.deviceId}>
+                            <div className="cart__items_card-image">
+                                <img src={`${process.env.REACT_APP_API_LINK}${device.details.image}`} alt={device.details.name} />
+                            </div>
+                            <div className="cart__items_card-details">
+                                <div className="cart__items_card-details_name">
+                                    {device.details.name}
                                 </div>
-                                <div className="cart__items_card-details">
-                                    <div className="cart__items_card-details_name">
-                                        {device.details.name}
-                                    </div>
-                                    <div className="cart__items_card-details_price">
-                                        {device.details.price} ₽
-                                    </div>
-                                    <div className="cart__items_card-details_button">
-                                        <button onClick={() => deleteDeviceFromBasket(device.deviceId)}>Удалить из корзины</button>
-                                    </div>
+                                <div className="cart__items_card-details_price">
+                                    {device.details.price} ₽
+                                </div>
+                                <div className="cart__items_card-details_button">
+                                    <button onClick={() => deleteDeviceFromBasket(device.deviceId)}>Удалить из корзины</button>
                                 </div>
                             </div>
-                        ))}
-                    </div>
-                }
-                
+                        </div>
+                    ))}
+                </div>
                 {
                     basket.length === 0
                     ?
