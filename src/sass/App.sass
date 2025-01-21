@@ -141,3 +141,31 @@ html, body
     text-align: center
     margin-top: 45%
     animation: loading 1s infinite
+
+.cart
+    padding: 20px
+    &__items
+        display: flex
+        flex-direction: column
+        gap: 20px
+        &_card
+            width: 100%
+            border: 1px solid gray
+            border-radius: 10px
+            padding: 20px
+            display: flex
+            &-image
+                width: 100px
+                height: 100%
+                img
+                    width: 100%
+            &-details
+                display: flex
+                flex-direction: column
+                justify-content: space-evenly
+                gap: 10px
+                &_name
+                    font-size: 14px
+                &_price
+                    font-size: 14px
+                
