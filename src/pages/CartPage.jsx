@@ -41,7 +41,9 @@ const CartPage = () => {
             } catch (error) {
                 console.error('Error during fetching basket for user', error);
             } finally {
-                setLoader(false);
+                setTimeout(() => {
+                    setLoader(false);
+                },1000)
             }
         };
     
