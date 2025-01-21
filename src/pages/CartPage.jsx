@@ -4,7 +4,7 @@ import axios from 'axios';
 import { currentTelegramUser } from '../variables';
 
 //Icons
-// import { LuLoader } from 'react-icons/lu';
+import { LuLoader } from 'react-icons/lu';
 
 const CartPage = () => {
 
@@ -78,32 +78,54 @@ const CartPage = () => {
         }
     }
 
+    if (!basket || basket.length === 0) {
+        return (
+            <div style={{textAlign: 'center', marginTop: '45%'}}>Ваша корзина пуста</div>
+        )
+    }
+
     return (
         <div className='App'>
             <div className="cart">
-                <div className="cart__items">
-                    {basket.map((device) => (
-                        <div className="cart__items_card" key={device.deviceId}>
-                            <div className="cart__items_card-image">
-                                <img src={`${process.env.REACT_APP_API_LINK}${device.details.image}`} alt={device.details.name} />
+                {
+                    loader
+                    ?
+                    <div className="loader">
+                        <LuLoader/>
+                    </div>
+                    :
+                    <div className="cart__items">
+                        {basket.map((device) => (
+                            <div className="cart__items_card" key={device.deviceId}>
+                                <div className="cart__items_card-image">
+                                    <img src={`${process.env.REACT_APP_API_LINK}${device.details.image}`} alt={device.details.name} />
+                                </div>
+                                <div className="cart__items_card-details">
+                                    <div className="cart__items_card-details_name">
+                                        {device.details.name}
+                                    </div>
+                                    <div className="cart__items_card-details_price">
+                                        {device.details.price} ₽
+                                    </div>
+                                    <div className="cart__items_card-details_button">
+                                        <button onClick={() => deleteDeviceFromBasket(device.deviceId)}>Удалить из корзины</button>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="cart__items_card-details">
-                                <div className="cart__items_card-details_name">
-                                    {device.details.name}
-                                </div>
-                                <div className="cart__items_card-details_price">
-                                    {device.details.price} ₽
-                                </div>
-                                <div className="cart__items_card-details_button">
-                                    <button onClick={() => deleteDeviceFromBasket(device.deviceId)}>Удалить из корзины</button>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                <div className="cart__clear">
-                    <button onClick={clearBasket}>Очистить корзину</button>
-                </div>
+                        ))}
+                    </div>
+                }
+                
+                {
+                    basket.length === 0
+                    ?
+                    <div></div>
+                    :
+                    <div className="cart__clear">
+                        <button onClick={clearBasket}>Очистить корзину</button>
+                    </div>
+                }
+                
             </div>
         </div>
     );
