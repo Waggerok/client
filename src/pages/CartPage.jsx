@@ -20,42 +20,50 @@ const CartPage = () => {
             try {
                 console.log('Fetching basket for user', currentTelegramUser);
     
-                const response = await axios.get(`${process.env.REACT_APP_API_LINK}/api/basket/${currentTelegramUser}`)
+                const response = await axios.get(`${process.env.REACT_APP_API_LINK}/api/basket/${currentTelegramUser}`);
+                const data = response.data;
     
-                console.log(response.data);
+                if (data && Array.isArray(data.basket_devices)) {
+                    // Загрузим детали для каждого устройства
+                    const devicesWithDetails = await Promise.all(
+                        data.basket_devices.map(async (device) => {
+                            const deviceDetails = await axios.get(
+                                `${process.env.REACT_APP_API_LINK}/api/devices/${device.deviceId}`
+                            );
+                            return { ...device, details: deviceDetails.data };
+                        })
+                    );
     
-                const data = response.data
-    
-                if(data && Array.isArray(data.basket_devices)) {
-                    setBasket(data.basket_devices)
+                    setBasket(devicesWithDetails);
                 } else {
-                    setBasket([])
+                    setBasket([]);
                 }
-            } catch(error) {
+            } catch (error) {
                 console.error('Error during fetching basket for user', error);
             } finally {
                 setLoader(false);
             }
-        }
-
-        fetchBasket()
-    },[])
+        };
+    
+        fetchBasket();
+    }, []);
+    
 
     return (
         <div className='App'>
             <div className="cart">
                 <div className="cart__items">
                     {basket.map((device) => (
-                        <div className="cart__items_card">
+                        <div className="cart__items_card" key={device.deviceId}>
                             <div className="cart__items_card-image">
-                                <img src={device.deviceId} alt={device.deviceId} />
+                                <img src={`${process.env.REACT_APP_API_LINK}/uploads/${device.details.image}`} alt={device.details.name} />
                             </div>
                             <div className="cart__items_card-details">
                                 <div className="cart__items_card-details_name">
-                                    {device.deviceId}
+                                    {device.details.name}
                                 </div>
                                 <div className="cart__items_card-details_price">
-                                    {device.deviceId}
+                                    {device.details.price} ₽
                                 </div>
                                 <div className="cart__items_card-details_button">
                                     <button>Удалить из корзины</button>
