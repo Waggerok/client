@@ -19,7 +19,6 @@ const MainPage = () => {
         axios
             .get(`${process.env.REACT_APP_API_LINK}/api/devices`)
             .then((data) => {
-                console.log(data.data)
                 setDevices(data.data)
                 setLoader(false);
             })

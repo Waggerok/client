@@ -5,20 +5,17 @@ import { currentTelegramUser } from '../variables';
 
 //Icons
 import { LuLoader } from 'react-icons/lu';
+import Alert from '../components/UI/Alert/Alert';
 
 const CartPage = () => {
 
     const [basket, setBasket] = useState([]);
     const [loader, setLoader] = useState(true);
-
-    console.log(loader);
-    console.log(basket);
-
+    const [showAlert,setShowAlert] = useState(false);
 
     useEffect(() => {
         const fetchBasket = async () => {
             try {
-                console.log('Fetching basket for user', currentTelegramUser);
     
                 const response = await axios.get(`${process.env.REACT_APP_API_LINK}/api/basket/${currentTelegramUser}`);
                 const data = response.data;
@@ -58,7 +55,10 @@ const CartPage = () => {
 
             setBasket((prevBasket) => prevBasket.filter((item) => item.deviceId !== deviceId));
 
-            alert('Товар успешно удален из корзины');
+            setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false)
+            }, 2000)
         } catch(error) {
             console.error('Error during deleting device from basket');
             alert('Не удалось удалить товар из корзины');
@@ -73,7 +73,10 @@ const CartPage = () => {
 
             setBasket([]);
 
-            alert('Ваша корзина очищена!');
+            setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+            },2000)
         } catch(error) {
             console.error('Error during clearing the basket', error);
             alert('Не удалось очистить корзину')
@@ -125,9 +128,14 @@ const CartPage = () => {
                     <div className="cart__clear">
                         <button onClick={clearBasket}>Очистить корзину</button>
                     </div>
-                }
-                
+                }                
             </div>
+            {
+                showAlert && <Alert text="Товар успешно удален из корзины"/>
+            }
+            {
+                showAlert && <Alert text="Ваша корзина очищена"/>
+            }
         </div>
     );
 };

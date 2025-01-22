@@ -27,7 +27,6 @@ const Navbar = () => {
 
                 if (currentAdmin) {
                     setIsAdmin(true);
-                    console.log('Да, он админ')
                 } else {
                     setIsAdmin(false);
                 }

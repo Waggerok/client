@@ -1,10 +1,11 @@
 .alert {
     position: fixed;
-    bottom: 20px;
+    bottom: 100px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #4caf50; /* Зеленый цвет */
     color: white;
+    width: 100%;
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

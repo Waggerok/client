@@ -27,7 +27,6 @@ const DevicePage = () => {
         axios
             .get(`${process.env.REACT_APP_API_LINK}/api/devices/${id}`)
             .then((response) => {
-                console.log('Device Data:', response.data); // Для проверки структуры данных
                 setDevice(response.data);
             })
             .catch((error) => {
@@ -46,11 +45,6 @@ const DevicePage = () => {
     const turnOn3D = () => {
         setIs3D((prev) => !prev);
     };
-
-    
-
-    console.log('Device:', device);
-    console.log('3D Model URL:', `${process.env.REACT_APP_API_LINK}${device.model3D}`);
     
     const addToBasket = async () => {
         try {
@@ -73,7 +67,6 @@ const DevicePage = () => {
         }
     }
 
-
     return (
         <div className='App'>
             <div className='device'>
@@ -94,7 +87,6 @@ const DevicePage = () => {
                                         <Model url={process.env.REACT_APP_API_LINK + device.model3D} />
                                     </Suspense>
                                 </Canvas>
-
 
                             ) : (
                                 <div>3D модель недоступна</div>
