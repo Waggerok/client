@@ -61,6 +61,7 @@ const DevicePage = () => {
             });
             console.log('Device added to basket', response.data);
             setShowAlert(true);
+            console.log("Show alert state:", showAlert);
 
             setTimeout(() => {
                 setShowAlert(false)
@@ -120,7 +121,7 @@ const DevicePage = () => {
                 </div>
             </div>
             {
-                showAlert && <Alert text='Вы успешно добавили товар в корзину'/>
+                showAlert && <Alert text="Вы успешно добавили товар в корзину"/>
             }
         </div>
     );
