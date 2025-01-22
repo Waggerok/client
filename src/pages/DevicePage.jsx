@@ -21,7 +21,7 @@ const DevicePage = () => {
     const { id } = useParams();
     const [device, setDevice] = useState(null);
     const [is3D, setIs3D] = useState(false);
-    const [showAlert, setShowAlert] = useState(false);
+    const [addAlert, setAddAlert] = useState(false);
 
     useEffect(() => {
         axios
@@ -53,12 +53,12 @@ const DevicePage = () => {
                 deviceId : device.id,
                 quantity : 1,
             });
-            console.log('Device added to basket', response.data);
-            setShowAlert(true);
-            console.log("Show alert state:", showAlert);
+
+            console.log(response.data)
+            setAddAlert(true);
 
             setTimeout(() => {
-                setShowAlert(false)
+                setAddAlert(false)
             },2000)
         }
         catch(error) {
@@ -113,7 +113,7 @@ const DevicePage = () => {
                 </div>
             </div>
             {
-                showAlert && <Alert text="Вы успешно добавили товар в корзину"/>
+                addAlert && <Alert text="Вы успешно добавили товар в корзину"/>
             }
         </div>
     );

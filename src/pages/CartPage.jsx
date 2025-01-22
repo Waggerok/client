@@ -11,7 +11,8 @@ const CartPage = () => {
 
     const [basket, setBasket] = useState([]);
     const [loader, setLoader] = useState(true);
-    const [showAlert,setShowAlert] = useState(false);
+    const [deleteAlert,setDeleteAlert] = useState(false);
+    const [clearAlert, setClearAlert] = useState(false)
 
     useEffect(() => {
         const fetchBasket = async () => {
@@ -55,9 +56,9 @@ const CartPage = () => {
 
             setBasket((prevBasket) => prevBasket.filter((item) => item.deviceId !== deviceId));
 
-            setShowAlert(true);
+            setDeleteAlert(true);
             setTimeout(() => {
-                setShowAlert(false)
+                setDeleteAlert(false)
             }, 2000)
         } catch(error) {
             console.error('Error during deleting device from basket');
@@ -73,9 +74,9 @@ const CartPage = () => {
 
             setBasket([]);
 
-            setShowAlert(true);
+            setClearAlert(true);
             setTimeout(() => {
-                setShowAlert(false);
+                setClearAlert(false);
             },2000)
         } catch(error) {
             console.error('Error during clearing the basket', error);
@@ -131,10 +132,10 @@ const CartPage = () => {
                 }                
             </div>
             {
-                showAlert && <Alert text="Товар успешно удален из корзины"/>
+                deleteAlert && <Alert text="Товар успешно удален из корзины"/>
             }
             {
-                showAlert && <Alert text="Ваша корзина очищена"/>
+                clearAlert && <Alert text="Ваша корзина очищена"/>
             }
         </div>
     );
