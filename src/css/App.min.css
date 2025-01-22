@@ -294,6 +294,7 @@ html, body {
 .cart__clear {
   margin-top: 50px;
   text-align: center;
+  padding-bottom: 30px;
 }
 .cart__clear button {
   background-color: #0f5bdd;

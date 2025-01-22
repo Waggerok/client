@@ -94,7 +94,7 @@ const CartPage = () => {
     }
 
     return (
-        <div className='App'>
+        <div className='App' style={{paddingBottom: '50px'}}>
             <div className="cart">
                 <div className="cart__items">
                     {basket.map((device) => (
