@@ -1,0 +1,12 @@
+.alert {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+.alert__text {
+    color: black;
+    font-size: 12px;
+}

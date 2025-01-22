@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import axios from 'axios';
+import Alert from '../components/UI/Alert/Alert';
 
 //Hooks
 import usePreventTelegramCollapse from '../hooks/usePreventTelegramCollapse';
@@ -58,7 +59,12 @@ const DevicePage = () => {
                 quantity : 1,
             });
             console.log('Device added to basket', response.data);
-            alert('Вы успешно добавили товар в корзину')
+            // alert('Вы успешно добавили товар в корзину')
+            return (
+                setTimeout(() => {
+                    <Alert text={'Вы успешно добавили товар в корзину'}/>
+                }, 2000)
+            )
         }
         catch(error) {
             console.error('Error during adding device to basket', error);
