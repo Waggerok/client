@@ -12,7 +12,6 @@ const CartPage = () => {
     const [basket, setBasket] = useState([]);
     const [loader, setLoader] = useState(true);
     const [deleteAlert,setDeleteAlert] = useState(false);
-    const [clearAlert, setClearAlert] = useState(false)
 
     useEffect(() => {
         const fetchBasket = async () => {
@@ -74,10 +73,6 @@ const CartPage = () => {
 
             setBasket([]);
 
-            setClearAlert(true);
-            setTimeout(() => {
-                setClearAlert(false);
-            },2000)
         } catch(error) {
             console.error('Error during clearing the basket', error);
             alert('Не удалось очистить корзину')
@@ -133,9 +128,6 @@ const CartPage = () => {
             </div>
             {
                 deleteAlert && <Alert text="Товар успешно удален из корзины"/>
-            }
-            {
-                clearAlert && <Alert text="Ваша корзина очищена"/>
             }
         </div>
     );
