@@ -21,6 +21,7 @@ const DevicePage = () => {
     const { id } = useParams();
     const [device, setDevice] = useState(null);
     const [is3D, setIs3D] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
 
     useEffect(() => {
         axios
@@ -59,12 +60,11 @@ const DevicePage = () => {
                 quantity : 1,
             });
             console.log('Device added to basket', response.data);
-            // alert('Вы успешно добавили товар в корзину')
-            return (
-                setTimeout(() => {
-                    <Alert text={'Вы успешно добавили товар в корзину'}/>
-                }, 2000)
-            )
+            setShowAlert(true);
+
+            setTimeout(() => {
+                setShowAlert(false)
+            },2000)
         }
         catch(error) {
             console.error('Error during adding device to basket', error);
@@ -119,6 +119,9 @@ const DevicePage = () => {
                     <button className='buttons__items_order' onClick={addToBasket}>Добавить в корзину</button>
                 </div>
             </div>
+            {
+                showAlert && <Alert text='Вы успешно добавили товар в корзину'/>
+            }
         </div>
     );
 };
