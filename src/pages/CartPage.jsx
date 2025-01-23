@@ -79,6 +79,24 @@ const CartPage = () => {
         }
     }
 
+    const updateDeviceQuantity = async (deviceId, quantity) => {
+        try {
+            await axios.post(`${process.env.REACT_APP_API_LINK}/api/basket/updateQuantity`, {
+                telegram_id: currentTelegramUser,
+                deviceId,
+                quantity,
+            });
+    
+            setBasket((prevBasket) =>
+                prevBasket.map((device) =>
+                    device.deviceId === deviceId ? { ...device, quantity } : device
+                )
+            );
+        } catch (error) {
+            console.error('Ошибка при обновлении количества устройства', error);
+        }
+    };
+
     if (!basket || basket.length === 0) {
         return (
             <div style={{textAlign: 'center', marginTop: '45%'}}>Ваша корзина пуста</div>
@@ -112,6 +130,21 @@ const CartPage = () => {
                                 <div className="cart__items_card-details_button">
                                     <button onClick={() => deleteDeviceFromBasket(device.deviceId)}>Удалить из корзины</button>
                                 </div>
+                            </div>
+                            <div className="cart__items_card-details_quantity">
+                                <button 
+                                    onClick={() => updateDeviceQuantity(device.deviceId, device.quantity - 1)}
+                                >
+                                    -
+                                </button>
+                                <span>
+                                    {device.quantity}
+                                </span>
+                                <button
+                                    onClick={() => updateDeviceQuantity(device.deviceId, device.quantity + 1)}
+                                >
+                                    +
+                                </button>
                             </div>
                         </div>
                     ))}

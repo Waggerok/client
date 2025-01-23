@@ -54,7 +54,12 @@ const DevicePage = () => {
                 quantity : 1,
             });
 
-            console.log(response.data)
+            if (response.data.updated) {
+                console.log('Количество товара увеличено')
+            } else {
+                console.log('Товар добавлен в корзину')
+            }
+
             setAddAlert(true);
 
             setTimeout(() => {
