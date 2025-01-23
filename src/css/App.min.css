@@ -296,14 +296,16 @@ html, body {
   border: 1px solid #0f5bdd;
   border-radius: 6px;
   color: #0f5bdd;
-  width: 30px;
+  width: 35px;
   height: 30px;
   font-size: 14px;
   text-align: center;
+  padding-right: 10px;
 }
 .cart__items_card-details_quantity span {
   margin-left: 10px;
   margin-right: 10px;
+  font-weight: 500;
 }
 .cart__clear {
   margin-top: 50px;
