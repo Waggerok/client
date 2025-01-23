@@ -127,24 +127,16 @@ const CartPage = () => {
                                 <div className="cart__items_card-details_price">
                                     {device.details.price} ₽
                                 </div>
+                                <div className="cart__items_card-details_quantity">
+                                    <button onClick={() => updateDeviceQuantity(device.deviceId, device.quantity - 1)}>-</button>
+                                    <span>
+                                        {device.quantity}
+                                    </span>
+                                    <button onClick={() => updateDeviceQuantity(device.deviceId, device.quantity + 1)}>+</button>
+                                </div>
                                 <div className="cart__items_card-details_button">
                                     <button onClick={() => deleteDeviceFromBasket(device.deviceId)}>Удалить из корзины</button>
                                 </div>
-                            </div>
-                            <div className="cart__items_card-details_quantity">
-                                <button 
-                                    onClick={() => updateDeviceQuantity(device.deviceId, device.quantity - 1)}
-                                >
-                                    -
-                                </button>
-                                <span>
-                                    {device.quantity}
-                                </span>
-                                <button
-                                    onClick={() => updateDeviceQuantity(device.deviceId, device.quantity + 1)}
-                                >
-                                    +
-                                </button>
                             </div>
                         </div>
                     ))}

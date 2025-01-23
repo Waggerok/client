@@ -291,6 +291,15 @@ html, body {
   color: #0f5bdd;
   font-size: 14px;
 }
+.cart__items_card-details_quantity button {
+  background-color: #fff;
+  border: 1px solid #0f5bdd;
+  border-radius: 6px;
+  color: #0f5bdd;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+}
 .cart__clear {
   margin-top: 50px;
   text-align: center;
