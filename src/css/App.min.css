@@ -299,6 +299,11 @@ html, body {
   width: 30px;
   height: 30px;
   font-size: 14px;
+  text-align: center;
+}
+.cart__items_card-details_quantity span {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .cart__clear {
   margin-top: 50px;
