@@ -146,8 +146,9 @@ const CartPage = () => {
                     ?
                     <div></div>
                     :
-                    <div className="cart__clear">
-                        <button onClick={clearBasket}>Очистить корзину</button>
+                    <div className="cart__service">
+                        <button className='cart__service_clear'onClick={clearBasket}>Очистить корзину</button>
+                        <button className='cart__service_order'>Оформить заказ</button>
                     </div>
                 }                
             </div>

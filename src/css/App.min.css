@@ -307,12 +307,25 @@ html, body {
   margin-right: 10px;
   font-weight: 500;
 }
-.cart__clear {
+.cart__service {
   margin-top: 50px;
   text-align: center;
   padding-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
-.cart__clear button {
+.cart__service_clear {
+  background-color: #fff;
+  border: 1px solid #0f5bdd;
+  border-radius: 10px;
+  color: #0f5bdd;
+  height: 60px;
+}
+.cart__service_order {
   background-color: #0f5bdd;
   border: 1px solid #0f5bdd;
   border-radius: 10px;
