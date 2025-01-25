@@ -317,6 +317,7 @@ html, body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  gap: 10px;
 }
 .cart__service_clear {
   background-color: #fff;
@@ -324,6 +325,7 @@ html, body {
   border-radius: 10px;
   color: #0f5bdd;
   height: 60px;
+  width: 140px;
 }
 .cart__service_order {
   background-color: #0f5bdd;
@@ -331,4 +333,5 @@ html, body {
   border-radius: 10px;
   color: white;
   height: 60px;
+  width: 140px;
 }/*# sourceMappingURL=App.min.css.map */
