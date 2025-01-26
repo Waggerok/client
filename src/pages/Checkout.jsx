@@ -20,6 +20,7 @@ const Checkout = () => {
     const [successAlert, setSuccessAlert] = useState(false);
     const [errorAlert, setErrorAlert] = useState(false);
 
+    console.log(basket);
     useEffect(() => {
         const fetchBasket = async () => {
             try {
@@ -39,7 +40,7 @@ const Checkout = () => {
                     setBasket(devicesWithDetails);
 
                     const total = devicesWithDetails.reduce(
-                        (sum,item) => sum + item.details.price * quantity,
+                        (sum,item) => sum + item.details.price * item.quantity,
                         0
                     );
                     setTotalPrice(total)
