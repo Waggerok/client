@@ -2,12 +2,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { currentTelegramUser } from '../variables';
+import { useNavigate } from 'react-router-dom';
+import Alert from '../components/UI/Alert/Alert';
 
 //Icons
 import { LuLoader } from 'react-icons/lu';
-import Alert from '../components/UI/Alert/Alert';
 
 const CartPage = () => {
+
+    const navigate = useNavigate();
 
     const [basket, setBasket] = useState([]);
     const [loader, setLoader] = useState(true);
@@ -147,8 +150,12 @@ const CartPage = () => {
                     <div></div>
                     :
                     <div className="cart__service">
-                        <button className='cart__service_clear'onClick={clearBasket}>Очистить корзину</button>
-                        <button className='cart__service_order'>Оформить заказ</button>
+                        <button className='cart__service_clear' onClick={clearBasket}>Очистить корзину</button>
+                        <button className='cart__service_order'
+                            onClick={() => navigate('/checkout')}
+                        >
+                            Оформить заказ
+                        </button>
                     </div>
                 }                
             </div>
