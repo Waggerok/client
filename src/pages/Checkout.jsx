@@ -56,14 +56,14 @@ const Checkout = () => {
     },[])
 
     const submitOrder = async (e) => {
-        e.PreventDefault();
+        e.preventDefault();
 
         if(!address) {
             alert('Пожалуйста введите адрес доставки');
             return;
         }
 
-        setIsLoading(false);
+        setIsLoading(true);
 
         try {
             const response = await axios.post(
@@ -79,7 +79,7 @@ const Checkout = () => {
             setSuccessAlert(true);
             setTimeout(() => {
                 setSuccessAlert(false);
-                navigate(`/orders/${currentTelegramUser}`);
+                navigate(`/orders`);
             },2000);
         } catch(error) {
             console.error('Error during created order', error);
