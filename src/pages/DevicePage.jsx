@@ -67,7 +67,7 @@ const DevicePage = () => {
             },2000)
         }
         catch(error) {
-            console.error('Error during adding device to basket', error);
+            console.error('Error during adding device to basket', error.response?.data || error);
             alert('Ошибка при добавлении товара в корзину');
         }
     }
