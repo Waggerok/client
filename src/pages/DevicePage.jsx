@@ -41,7 +41,7 @@ const DevicePage = () => {
         }
     
         axios.post(`${process.env.REACT_APP_API_LINK}/api/basket/create-basket`, {
-            telegram_id: currentTelegramUser,
+            userTelegramId: currentTelegramUser,
         })
         .then(response => {
             console.log(response.data.message);
@@ -51,6 +51,7 @@ const DevicePage = () => {
         });
     }, []);
     
+
 
     if (!device) {
         return (
