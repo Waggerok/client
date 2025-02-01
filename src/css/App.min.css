@@ -334,4 +334,34 @@ html, body {
   color: white;
   height: 60px;
   width: 140px;
+}
+
+.checkout__field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.checkout__field input {
+  border: 2px solid #0f5bdd;
+  border-radius: 10px;
+  width: 350px;
+  height: 35px;
+  margin-top: 5px;
+}
+.checkout__summary {
+  margin-top: 70px;
+}
+.checkout__submit {
+  display: block;
+  margin: 0 auto;
+}
+.checkout__submit button {
+  height: 40px;
+  background-color: #0f5bdd;
+  color: white;
+  border: 1px solid #0f5bdd;
 }/*# sourceMappingURL=App.min.css.map */

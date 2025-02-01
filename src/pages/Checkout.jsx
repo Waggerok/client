@@ -112,7 +112,7 @@ const Checkout = () => {
                         <h3>Сумма заказа {totalPrice} руб.</h3>
                     </div>
                     <button type='submit' className='checkout__submit' disabled={isLoading}>
-                        {isLoading ? <LuLoader size={50}/> : 'Оформить заказ'}
+                        {isLoading ? <LuLoader size={50} color='#0f5bdd'/> : 'Оформить заказ'}
                     </button>
                 </form>
             </div>
