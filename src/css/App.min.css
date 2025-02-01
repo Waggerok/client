@@ -358,10 +358,9 @@ html, body {
 .checkout__submit {
   display: block;
   margin: 0 auto;
-}
-.checkout__submit button {
   height: 40px;
   background-color: #0f5bdd;
   color: white;
   border: 1px solid #0f5bdd;
+  margin-top: 30px;
 }/*# sourceMappingURL=App.min.css.map */
