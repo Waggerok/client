@@ -34,6 +34,19 @@ const DevicePage = () => {
             });
     }, [id]);
 
+    useEffect(() => {
+        axios
+            .post(`${process.env.REACT_APP_API_LINK}/api/basket/create-basket`, {
+                telegram_id : currentTelegramUser
+            })
+            .then(response => {
+                console.log(response.data.message)
+            })
+            .catch(error => {
+                console.error('Ошибка при создании корзины', error.response?.data || error);
+            })
+    },[])
+
     if (!device) {
         return (
             <div className='loader'>

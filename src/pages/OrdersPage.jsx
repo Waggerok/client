@@ -18,7 +18,6 @@ const OrdersPage = () => {
                 setOrders(response.data);
             } catch(error) {
                 console.error('Ошибка при загрузке товаров', error);
-                alert('Не удалось загрузить заказы');
             } finally {
                 setLoader(false);
             }
