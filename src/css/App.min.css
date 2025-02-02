@@ -363,4 +363,21 @@ html, body {
   color: white;
   border: 1px solid #0f5bdd;
   margin-top: 30px;
+}
+
+.orders__title {
+  text-align: center;
+  margin-top: 10px;
+}
+.orders__list_item {
+  border: 1px solid #0f5bdd;
+  width: 350px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 10px;
+  padding: 10px;
 }/*# sourceMappingURL=App.min.css.map */

@@ -51,8 +51,8 @@ const OrdersPage = () => {
                 </div>
                 <div className="orders__list">
                     {orders.map((order) => (
-                        <div className="orders__item" key={order.id}>
-                            <div className="orders__item-details">
+                        <div className="orders__list_item" key={order.id}>
+                            <div className="orders__list_item-details">
                                 <div>
                                     <strong>Номер заказа: </strong>{order.id}
                                 </div>
@@ -63,7 +63,7 @@ const OrdersPage = () => {
                                     <strong>Адрес:</strong> {order.address}
                                 </div>
                                 <div>
-                                    <strong>Полная стоимость заказа:</strong> {order.total_price}
+                                    <strong>Полная стоимость заказа:</strong> {order.total_price} руб.
                                 </div>
                             </div>
                         </div>
