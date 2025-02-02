@@ -57,40 +57,48 @@ const Checkout = () => {
 
     const submitOrder = async (e) => {
         e.preventDefault();
-
-        if(!address) {
-            alert('Пожалуйста введите адрес доставки');
+    
+        if (!address) {
+            alert('Пожалуйста, введите адрес доставки');
             return;
         }
-
+    
         setIsLoading(true);
-
+    
         try {
+            const items = basket.map(item => ({
+                deviceId: item.deviceId,
+                quantity: item.quantity
+            }));
+    
             const response = await axios.post(
-                `${process.env.REACT_APP_API_LINK}/api/orders`, {
-                    telegram_id : currentTelegramUser,
+                `${process.env.REACT_APP_API_LINK}/api/orders`,
+                {
+                    telegram_id: currentTelegramUser,
                     address,
-                    total_price : totalPrice
+                    total_price: totalPrice,
+                    items
                 }
-            )
-
+            );
+    
             console.log('Order created', response.data);
-
+    
             setSuccessAlert(true);
             setTimeout(() => {
                 setSuccessAlert(false);
                 navigate(`/orders`);
-            },2000);
-        } catch(error) {
+            }, 2000);
+        } catch (error) {
             console.error('Error during created order', error);
             setErrorAlert(true);
             setTimeout(() => {
-                setErrorAlert(false)
-            },2000)
+                setErrorAlert(false);
+            }, 2000);
         } finally {
             setIsLoading(false);
         }
-    }
+    };
+    
 
     return (
         <div className="App">
