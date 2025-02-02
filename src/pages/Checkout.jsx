@@ -59,7 +59,7 @@ const Checkout = () => {
         e.preventDefault();
     
         if (!address) {
-            alert('Пожалуйста, введите адрес доставки');
+            alert("Пожалуйста, введите адрес доставки");
             return;
         }
     
@@ -68,8 +68,16 @@ const Checkout = () => {
         try {
             const items = basket.map(item => ({
                 deviceId: item.deviceId,
-                quantity: item.quantity
+                quantity: item.quantity,
+                price: item.details.price // Убедись, что передается цена
             }));
+    
+            console.log("Отправляем заказ:", {
+                telegram_id: currentTelegramUser,
+                address,
+                total_price: totalPrice,
+                items
+            });
     
             const response = await axios.post(
                 `${process.env.REACT_APP_API_LINK}/api/orders`,
@@ -81,7 +89,7 @@ const Checkout = () => {
                 }
             );
     
-            console.log('Order created', response.data);
+            console.log("Заказ создан", response.data);
     
             setSuccessAlert(true);
             setTimeout(() => {
@@ -89,7 +97,7 @@ const Checkout = () => {
                 navigate(`/orders`);
             }, 2000);
         } catch (error) {
-            console.error('Error during created order', error);
+            console.error("Ошибка при создании заказа", error);
             setErrorAlert(true);
             setTimeout(() => {
                 setErrorAlert(false);
@@ -98,6 +106,7 @@ const Checkout = () => {
             setIsLoading(false);
         }
     };
+    
     
 
     return (
