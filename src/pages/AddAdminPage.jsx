@@ -17,13 +17,13 @@ const AddAdminPage = () => {
             })
     },[])
 
-    const assignAdmin = async (telegram_id) => {
-        try {
-            await axios.put(`${process.env.REACT_APP_API_LINK}/api/user/assignAdmin/${telegram_id}`)
-        } catch(error) {
-            console.error('Error during assigning admin', error);
-        }
-    }
+    // const assignAdmin = async (telegram_id) => {
+    //     try {
+    //         await axios.put(`${process.env.REACT_APP_API_LINK}/api/user/assignAdmin/${telegram_id}`)
+    //     } catch(error) {
+    //         console.error('Error during assigning admin', error);
+    //     }
+    // }
     
     return (
         <div className='App'>
