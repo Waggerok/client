@@ -423,7 +423,7 @@ html, body {
   margin-top: 10px;
   text-align: center;
 }
-.addAdmin__users {
+.addAdmin__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -433,7 +433,7 @@ html, body {
           flex-direction: column;
   gap: 15px;
 }
-.addAdmin__users_item {
+.addAdmin__list_item {
   border: 1px solid #0f5bdd;
   border-radius: 10px;
   display: -webkit-box;
@@ -447,10 +447,46 @@ html, body {
   height: 40px;
   cursor: pointer;
 }
-.addAdmin__users_item-name {
+.addAdmin__list_item-name {
   font-size: 14px;
   width: 80%;
 }
-.addAdmin__users_item-role {
+.addAdmin__list_item-role {
+  font-size: 14px;
+}
+
+.deleteAdmin__title {
+  margin-top: 10px;
+  text-align: center;
+}
+.deleteAdmin__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 15px;
+}
+.deleteAdmin__list_item {
+  border: 1px solid #0f5bdd;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  cursor: pointer;
+}
+.deleteAdmin__list_item-name {
+  font-size: 14px;
+  width: 80%;
+}
+.deleteAdmin__list_item-role {
   font-size: 14px;
 }/*# sourceMappingURL=App.min.css.map */

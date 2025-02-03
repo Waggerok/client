@@ -269,7 +269,29 @@ html, body
     &__title
         margin-top: 10px
         text-align: center
-    &__users
+    &__list
+        display: flex
+        flex-direction: column
+        gap: 15px
+        &_item
+            border: 1px solid $main-color
+            border-radius: 10px
+            display: flex
+            justify-content: space-around
+            align-items: center
+            height: 40px
+            cursor: pointer
+            &-name
+                font-size: 14px
+                width: 80%
+            &-role
+                font-size: 14px
+
+.deleteAdmin
+    &__title
+        margin-top: 10px
+        text-align: center
+    &__list
         display: flex
         flex-direction: column
         gap: 15px

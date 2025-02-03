@@ -43,13 +43,13 @@ const AddAdminPage = () => {
                 <div className="addAdmin__title">
                     <h2>Добавить администратора</h2>
                 </div>
-                <div className="addAdmin__users">
+                <div className="addAdmin__list">
                     
                     {
                         Array.isArray(users) && users.length > 0 ? (
                             users.map((user) => (
                                 <div 
-                                className='addAdmin__users_item' 
+                                className='addAdmin__list_item' 
                                 key={user.id}
                                 onClick={() => assignAdmin(user.telegram_id)}
                                 style={{
@@ -57,10 +57,10 @@ const AddAdminPage = () => {
                                     color : user.role === 'ADMIN' ? 'white' : 'black'
                                 }}
                                 >
-                                    <div className="addAdmin__users_item-name">
+                                    <div className="addAdmin__list_item-name">
                                         {user.telegram_id}
                                     </div>
-                                    <div className="addAdmin__users_item-role">
+                                    <div className="addAdmin__list_item-role">
                                         {user.role}
                                     </div>
                                 </div>
