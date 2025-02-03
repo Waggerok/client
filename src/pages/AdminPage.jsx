@@ -7,9 +7,9 @@ const AdminPage = () => {
             <div className="admin">
                 <div className="admin__buttons">
                     <button style={{ backgroundColor: '#0f5bdd', color: 'white' }}>Добавить устройство</button>
-                    <button style={{ backgroundColor: 'white', color: 'red', border: '1px solid red' }}>Удалить устройство</button>
                     <button style={{ backgroundColor: '#0f5bdd', color: 'white' }}>Редактировать устройство</button>
                     <button style={{ backgroundColor: '#0f5bdd', color: 'white' }}>Назначить админа</button>
+                    <button style={{ backgroundColor: 'white', color: 'red', border: '1px solid red' }}>Удалить устройство</button>
                     <button style={{ backgroundColor: 'white', color: 'red', border: '1px solid red' }}>Удалить админа</button>
                 </div>
             </div>

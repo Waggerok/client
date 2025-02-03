@@ -396,6 +396,9 @@ html, body {
   font-size: 14px;
 }
 
+.admin {
+  margin-top: 10px;
+}
 .admin__buttons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -404,6 +407,10 @@ html, body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
 }
 .admin__buttons button {
   width: 200px;
