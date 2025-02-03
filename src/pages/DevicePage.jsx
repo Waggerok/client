@@ -99,7 +99,7 @@ const DevicePage = () => {
                         {is3D ? (
                             device.model3D ? (
                                 <Canvas 
-                                    camera={{ position: [0, 1, 1], fov: 50 }}
+                                    camera={{ position: [-3, 1, 1], fov: 50 }}
                                 >
                                     <ambientLight intensity={0.9} />
                                     <directionalLight position={[0, 20, 0]} intensity={1} />
