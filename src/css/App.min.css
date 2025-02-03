@@ -394,4 +394,20 @@ html, body {
   padding: 10px;
   margin-bottom: 10px;
   font-size: 14px;
+}
+
+.admin__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.admin__buttons button {
+  width: 200px;
+  height: 60px;
+  border: 1px solid #0f5bdd;
+  border-radius: 10px;
 }/*# sourceMappingURL=App.min.css.map */
