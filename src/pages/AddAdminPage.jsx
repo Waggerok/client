@@ -6,27 +6,32 @@ const AddAdminPage = () => {
     const [users,setUsers] = useState([]);
 
     useEffect(() => {
-        axios
-            .get(`${process.env.REACT_APP_API_LINK}/api/user/getUsers`)
-            .then((response) => {
-                console.log('Пользователи получены', response.data)
-                setUsers(response.data);
-            })
-            .catch((error) => {
-                console.error('Ошибка при получении пользователей')
-            })
+       fetchUsers()
     },[])
+
+    const fetchUsers = async() => {
+        try{
+            const response = await axios.get(`${process.env.REACT_APP_API_LINK}/api/user/getUsers`);
+            console.log('Пользователи получены', response.data);
+
+            if (Array.isArray(response.data)) {
+                setUsers(response.data);
+            } else {
+                console.error('Получены некорректные данные', response.data);
+                setUsers([]);
+            }
+        } catch(error) {
+            console.error('Error during fetching users', error);
+            setUsers([]);
+        }       
+    }
 
     const assignAdmin = async (telegram_id) => {
         try {
             await axios.put(`${process.env.REACT_APP_API_LINK}/api/user/assignAdmin/${telegram_id}`)
             console.log('Пользователя теперь является администратором')
 
-            setUsers((prevUsers) => {
-                prevUsers.map((user) => 
-                    user.telegram_id === telegram_id ? {...user, role: 'ADMIN'} : user
-                )
-            })
+            fetchUsers();
         } catch(error) {
             console.error('Error during assigning admin', error);
         }
