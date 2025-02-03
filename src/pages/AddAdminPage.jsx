@@ -17,13 +17,20 @@ const AddAdminPage = () => {
             })
     },[])
 
-    // const assignAdmin = async (telegram_id) => {
-    //     try {
-    //         await axios.put(`${process.env.REACT_APP_API_LINK}/api/user/assignAdmin/${telegram_id}`)
-    //     } catch(error) {
-    //         console.error('Error during assigning admin', error);
-    //     }
-    // }
+    const assignAdmin = async (telegram_id) => {
+        try {
+            await axios.put(`${process.env.REACT_APP_API_LINK}/api/user/assignAdmin/${telegram_id}`)
+            console.log('Пользователя теперь является администратором')
+
+            setUsers((prevUsers) => {
+                prevUsers.map((user) => 
+                    user.telegram_id === telegram_id ? {...user, role: 'ADMIN'} : user
+                )
+            })
+        } catch(error) {
+            console.error('Error during assigning admin', error);
+        }
+    }
     
     return (
         <div className='App'>
@@ -36,7 +43,15 @@ const AddAdminPage = () => {
                     {
                         Array.isArray(users) && users.length > 0 ? (
                             users.map((user) => (
-                                <div className='addAdmin__users_item' key={user.id}>
+                                <div 
+                                className='addAdmin__users_item' 
+                                key={user.id}
+                                onClick={() => assignAdmin(user.telegram_id)}
+                                style={{
+                                    backgroundColor : user.role === 'ADMIN' ? '#0f5bdd' : 'white',
+                                    color : user.role === 'ADMIN' ? 'white' : 'black'
+                                }}
+                                >
                                     <div className="addAdmin__users_item-name">
                                         {user.telegram_id}
                                     </div>
