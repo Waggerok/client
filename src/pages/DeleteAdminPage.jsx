@@ -2,7 +2,9 @@ import React from 'react';
 
 const DeleteAdminPage = () => {
     return (
-        <div></div>
+        <div>
+            <h2>delete admin</h2>
+        </div>
     )
 }
 

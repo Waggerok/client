@@ -2,7 +2,9 @@ import React from 'react';
 
 const EditDevicePage = () => {
     return (
-        <div></div>
+        <div>
+            <h2>edit device</h2>
+        </div>
     )
 }
 

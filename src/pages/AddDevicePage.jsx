@@ -2,7 +2,9 @@ import React from 'react';
 
 const AddDevicePage = () => {
     return (
-        <div></div>
+        <div>
+            <h2>add device</h2>
+        </div>
     )
 }
 
