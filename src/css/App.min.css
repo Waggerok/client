@@ -504,6 +504,7 @@ html, body {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 15px;
+  padding-bottom: 80px;
 }
 .deleteDevice__list_item {
   border: 1px solid #0f5bdd;
@@ -520,12 +521,12 @@ html, body {
   cursor: pointer;
 }
 .deleteDevice__list_item-id {
-  font-size: 14px;
+  font-size: 12px;
 }
 .deleteDevice__list_item-name {
-  font-size: 14px;
+  font-size: 12px;
 }
 .deleteDevice__list_item-price {
-  font-size: 14px;
-  width: 20%;
+  font-size: 12px;
+  width: 15%;
 }/*# sourceMappingURL=App.min.css.map */
