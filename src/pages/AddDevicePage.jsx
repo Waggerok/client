@@ -81,7 +81,7 @@ const AddDevicePage = () => {
                     />
                     <input 
                         type="file"
-                        accept='.jpg,.png'
+                        accept='.jpg,.png,.jpeg'
                         onChange={(e) => setImage(e.target.files[0])} 
                     />
                     <input 
