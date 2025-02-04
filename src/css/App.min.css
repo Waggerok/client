@@ -516,18 +516,16 @@ html, body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 40px;
+  height: 60px;
   cursor: pointer;
+}
+.deleteDevice__list_item-id {
+  font-size: 14px;
 }
 .deleteDevice__list_item-name {
   font-size: 14px;
-  width: 33px;
-}
-.deleteDevice__list_item-role {
-  font-size: 14px;
-  width: 33px;
 }
 .deleteDevice__list_item-price {
   font-size: 14px;
-  width: 33px;
+  width: 20%;
 }/*# sourceMappingURL=App.min.css.map */
