@@ -529,4 +529,17 @@ html, body {
 .deleteDevice__list_item-price {
   font-size: 12px;
   width: 15%;
+}
+
+.addDevice__title {
+  margin-top: 10px;
+  text-align: center;
+}
+.addDevice__form_button {
+  border: 1px solid #0f5bdd;
+  height: 50px;
+  border-radius: 10px;
+  color: white;
+  background-color: #0f5bdd;
+  width: 200px;
 }/*# sourceMappingURL=App.min.css.map */
