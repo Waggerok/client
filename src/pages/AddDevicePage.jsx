@@ -82,13 +82,11 @@ const AddDevicePage = () => {
                     <input 
                         type="file"
                         accept='.jpg,.png'
-                        value={image}
                         onChange={(e) => setImage(e.target.files[0])} 
                     />
                     <input 
                         type="file"
                         accept='.glb,.gltf'
-                        value={image}
                         onChange={(e) => setModel3D(e.target.files[0])} 
                     />
                     <button className='addDevice__form_button' type='submit'>Добавить устройство</button>
