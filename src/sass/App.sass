@@ -357,9 +357,6 @@ html, body
             border: 1px solid $main-color
             font-size: 14px
             border-radius: 8px
-        input[type="file"]
-            display: flex
-            align-content: center
         &_button
             margin-top: 30px
             border: 1px solid $main-color
@@ -420,7 +417,9 @@ html, body
             border-radius: 8px
 
 .custom-file-upload
-    display: block
+    display: flex
+    align-items: center
+    justify-content: center
     padding: 10px
     background: #3498db
     color: white
@@ -428,5 +427,6 @@ html, body
     border-radius: 5px
     cursor: pointer
     margin-top: 10px
+    font-size: 14px
     input
         display: none

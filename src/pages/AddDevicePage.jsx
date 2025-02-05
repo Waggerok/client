@@ -94,7 +94,7 @@ const AddDevicePage = () => {
                         />
                         {imageName}
                     </label>
-                    <label className='custon-file-upload'>
+                    <label className='custom-file-upload'>
                         <input 
                             type="file"
                             accept='.glb'

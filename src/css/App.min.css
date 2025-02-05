@@ -564,13 +564,6 @@ html, body {
   font-size: 14px;
   border-radius: 8px;
 }
-.addDevice__form input[type=file] {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-line-pack: center;
-      align-content: center;
-}
 .addDevice__form_button {
   margin-top: 30px;
   border: 1px solid #0f5bdd;
@@ -653,7 +646,15 @@ html, body {
 }
 
 .custom-file-upload {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 10px;
   background: #3498db;
   color: white;
@@ -661,6 +662,7 @@ html, body {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  font-size: 14px;
 }
 .custom-file-upload input {
   display: none;
