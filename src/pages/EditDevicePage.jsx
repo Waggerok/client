@@ -64,7 +64,7 @@ const EditDevicePage = () => {
                     value={deviceId}
                     onChange={(e) => setDeviceId(e.target.value)}
                 />
-                <button onSubmit={fetchDevice}>Загрузить устройство</button>
+                <button onClick={fetchDevice}>Загрузить устройство</button>
 
                 {message && <p style={{ color : message.includes('Ошибка') ? 'red' : 'green'}}>{message}</p>}
 
