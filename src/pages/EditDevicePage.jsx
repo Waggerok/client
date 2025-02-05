@@ -110,7 +110,7 @@ const EditDevicePage = () => {
                         <label className='custom-file-upload'>
                             <input
                                 type='file'
-                                accept='.glb,.gltf'
+                                accept='.glb'
                                 onChange={(e) => {
                                     setDeviceData({ ...deviceData, model3D : e.target.files[0] });
                                     setModel3DName(e.target.files[0]?.name || 'Выберите 3D модель');

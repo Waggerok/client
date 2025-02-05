@@ -9,7 +9,9 @@ const AddDevicePage = () => {
     const [image, setImage] = useState(null);
     const [model3D, setModel3D] = useState(null);
     const [quantity, setQuantity] = useState('');
-    const [message, setMessage] = useState('')
+    const [message, setMessage] = useState('');
+    const [imageName, setImageName] = useState('Выберите изображение: .png .jpeg .jpg');
+    const [model3DName, setModel3DName] = useState('Выберите 3D модель : .glb')
 
    const addDevice = async (e) => {
         e.preventDefault();
@@ -42,6 +44,8 @@ const AddDevicePage = () => {
             setQuantity('');
             setImage(null);
             setModel3D(null);
+            setImageName('Выберите изображение: .png .jpeg .jpg');
+            setModel3DName('Выберите 3D модель : .glb');
         } catch (error) {
             console.error('Ошибка при добавлении устройства', error);
             setMessage('Ошибка при добавлении устройства');
@@ -79,16 +83,29 @@ const AddDevicePage = () => {
                         value={quantity}
                         onChange={(e) => setQuantity(e.target.value)} 
                     />
-                    <input 
-                        type="file"
-                        accept='.jpg,.png,.jpeg'
-                        onChange={(e) => setImage(e.target.files[0])} 
-                    />
-                    <input 
-                        type="file"
-                        accept='.glb,.gltf'
-                        onChange={(e) => setModel3D(e.target.files[0])} 
-                    />
+                    <label className='custom-file-upload'>
+                        <input 
+                            type="file"
+                            accept='.jpg,.png,.jpeg'
+                            onChange={(e) => {
+                                setImage(e.target.files[0]);
+                                setImageName(e.target.files[0]?.name || 'Выберите изображение : .png .jpg .jpeg')
+                            }} 
+                        />
+                        {imageName}
+                    </label>
+                    <label className='custon-file-upload'>
+                        <input 
+                            type="file"
+                            accept='.glb'
+                            onChange={(e) => {
+                                setModel3D(e.target.files[0]);
+                                setModel3DName(e.target.files[0]?.name || 'Выберите 3D модель : .glb')
+                            }} 
+                        />
+                        {model3DName}
+                    </label>
+
                     <button className='addDevice__form_button' type='submit'>Добавить устройство</button>
                 </form>                
             </div>

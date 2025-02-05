@@ -628,6 +628,15 @@ html, body {
           align-items: center;
   gap: 10px;
 }
+.editDevice__form_button {
+  margin-top: 30px;
+  border: 1px solid #0f5bdd;
+  height: 50px;
+  border-radius: 10px;
+  color: white;
+  background-color: #0f5bdd;
+  width: 200px;
+}
 .editDevice__form input {
   width: 85%;
   height: 40px;
@@ -641,15 +650,6 @@ html, body {
   border: 1px solid #0f5bdd;
   font-size: 14px;
   border-radius: 8px;
-}
-.editDevice__form__button {
-  margin-top: 30px;
-  border: 1px solid #0f5bdd;
-  height: 50px;
-  border-radius: 10px;
-  color: white;
-  background-color: #0f5bdd;
-  width: 200px;
 }
 
 .custom-file-upload {
