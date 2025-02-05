@@ -58,13 +58,16 @@ const EditDevicePage = () => {
                 <div className="editDevice__title">
                     <h2>Редактировать устройство</h2>
                 </div>
-                <input 
-                    type="text"
-                    placeholder='Введите Id устройства'
-                    value={deviceId}
-                    onChange={(e) => setDeviceId(e.target.value)}
-                />
-                <button onClick={fetchDevice}>Загрузить устройство</button>
+                <div className="editDevice__idName">
+                    <input 
+                        type="text"
+                        placeholder='Введите Id устройства'
+                        value={deviceId}
+                        onChange={(e) => setDeviceId(e.target.value)}
+                    />
+                    <button onClick={fetchDevice}>Загрузить устройство</button>
+                </div>
+                
 
                 {message && <p style={{ color : message.includes('Ошибка') ? 'red' : 'green'}}>{message}</p>}
 
