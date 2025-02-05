@@ -579,4 +579,18 @@ html, body {
   color: white;
   background-color: #0f5bdd;
   width: 200px;
+}
+
+.custom-file-upload {
+  display: block;
+  padding: 10px;
+  background: #3498db;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.custom-file-upload input {
+  display: none;
 }/*# sourceMappingURL=App.min.css.map */
