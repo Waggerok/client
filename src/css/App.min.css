@@ -550,6 +550,10 @@ html, body {
 }
 .addDevice__form input {
   margin-top: 10px;
+  width: 85%;
+  height: 40px;
+  border: 1px solid #0f5bdd;
+  font-size: 14px;
 }
 .addDevice__form textarea {
   margin: 10px;

@@ -52,7 +52,7 @@ const AddDevicePage = () => {
         <div className='App'>
             <div className="addDevice">
                 <div className="addDevice__title">
-                    Добавить устройство
+                    <h2>Добавить устройство</h2>
                 </div>
                 {message && <p style={{ color: message.includes('Ошибка') ? 'red' : 'green'}}>{message}</p>}
                 <form onSubmit={addDevice} className='addDevice__form'>
