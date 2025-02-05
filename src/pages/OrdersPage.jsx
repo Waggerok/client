@@ -1,7 +1,11 @@
-import axios from 'axios';
+//React Imports
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-import {currentTelegramUser} from '../variables'
+//Variables
+import {currentTelegramUser} from '../variables';
+
+//Icons
 import { LuLoader } from 'react-icons/lu';
 
 

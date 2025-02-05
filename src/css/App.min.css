@@ -547,6 +547,7 @@ html, body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-bottom: 50px;
 }
 .addDevice__form input {
   margin-top: 10px;
@@ -620,6 +621,7 @@ html, body {
       -ms-flex-align: center;
           align-items: center;
   gap: 10px;
+  padding-bottom: 50px;
 }
 .editDevice__form_button {
   margin-top: 30px;
@@ -646,6 +648,7 @@ html, body {
 }
 
 .custom-file-upload {
+  width: 85%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

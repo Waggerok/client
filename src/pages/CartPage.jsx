@@ -1,12 +1,14 @@
 //React Imports
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { currentTelegramUser } from '../variables';
 import { useNavigate } from 'react-router-dom';
 import Alert from '../components/UI/Alert/Alert';
 
 //Icons
 import { LuLoader } from 'react-icons/lu';
+
+//Variables
+import { currentTelegramUser } from '../variables';
 
 const CartPage = () => {
 

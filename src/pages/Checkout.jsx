@@ -6,6 +6,8 @@ import Alert from '../components/UI/Alert/Alert';
 
 // Icons
 import { LuLoader } from 'react-icons/lu';
+
+//Variables
 import { currentTelegramUser } from '../variables';
 
 
