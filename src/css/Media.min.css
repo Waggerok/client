@@ -13,10 +13,42 @@
   .device__items_name {
     margin-top: 0px;
   }
+  .device__items_description {
+    margin-top: 0px;
+  }
   .buttons__items_3D {
     scale: 0.9;
   }
+  .buttons__items_3D_active {
+    scale: 0.8;
+  }
   .buttons__items_order {
     scale: 0.9;
+  }
+  .cart__items_card-details_quantity button {
+    padding-right: 0px;
+  }
+  .cart__service {
+    padding-bottom: 0px;
+    margin-top: 30px;
+  }
+  .cart__service_clear {
+    width: 200px;
+    scale: 0.9;
+    font-size: 15px;
+  }
+  .cart__service_order {
+    width: 200px;
+    scale: 0.9;
+    font-size: 15px;
+  }
+  .addDevice {
+    margin-top: 0px;
+  }
+  .addDevice__title {
+    margin-top: 0px;
+  }
+  .addDevice__form {
+    margin-top: 0px;
   }
 }/*# sourceMappingURL=Media.min.css.map */
