@@ -1,0 +1,22 @@
+@media (max-width: 400px) {
+  .App {
+    width: 380px;
+  }
+  .menu {
+    height: 60px;
+    padding-bottom: 0px;
+  }
+  .device__items_image {
+    height: 280px;
+    width: 70%;
+  }
+  .device__items_name {
+    margin-top: 0px;
+  }
+  .buttons__items_3D {
+    scale: 0.9;
+  }
+  .buttons__items_order {
+    scale: 0.9;
+  }
+}/*# sourceMappingURL=Media.min.css.map */
